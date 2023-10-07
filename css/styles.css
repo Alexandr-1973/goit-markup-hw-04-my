@@ -1,3 +1,8 @@
+/**::before,
+*::after {
+  box-sizing: border-box;
+}*/
+
 h1,
 h2,
 h3,
@@ -34,28 +39,10 @@ img {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
-.flex-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
-.order-section {
-  padding-top: 188px;
-  padding-bottom: 188px;
-}
 .section {
   padding-top: 120px;
   padding-bottom: 120px;
-}
-.team-name-worker {
-  padding-top: 32px;
-  padding-bottom: 32px;
-}
-.port-title-text {
-  padding: 32px 16px;
-  border: 1px solid #e7e9fc;
-  border-top: none;
 }
 
 body {
@@ -70,6 +57,12 @@ ul {
 .header {
   border-bottom: 1px solid #e7e9fc;
   border-color: #e7e9fc;
+}
+
+.flex-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header-navigation {
@@ -99,6 +92,18 @@ ul {
 .header-menu-item {
 }
 
+.header-menu-item::after {
+  content: '';
+  height: 4px;
+  background-color: #404bbf;
+  display: block;
+  opacity: 0;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.header-menu-item:active::after {
+  opacity: 1;
+}
+
 .header-menu-item-link {
   color: #2e2f42;
   font-size: 16px;
@@ -109,11 +114,14 @@ ul {
   padding-top: 24px;
   padding-bottom: 24px;
   display: block;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .header-menu-item-link:hover,
 .header-menu-item-link:focus {
   color: #404bbf;
 }
+
 .header-address {
   font-style: normal;
 }
@@ -130,6 +138,7 @@ ul {
   line-height: 1.5;
   letter-spacing: 0.02em;
   text-decoration: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header-address-list-link:hover,
 .header-address-list-link:focus {
@@ -138,7 +147,19 @@ ul {
 
 .order {
   background-color: #2e2f42;
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/people-office-opt.jpg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 1440px;
   height: 600px;
+}
+.order-section {
+  padding-top: 188px;
+  padding-bottom: 188px;
 }
 
 .order-title {
@@ -169,7 +190,9 @@ ul {
   display: block;
   min-width: 169px;
   border: none;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .order-btn:focus,
 .order-btn:hover {
   background-color: #404bbf;
@@ -227,6 +250,9 @@ ul {
   border-radius: 0px 0px 4px 4px;
   border-radius: 0px 0px 4px 4px;
   flex-basis: calc((100%-3 * 24px) / 4);
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
 
 .team-list-item-image {
@@ -249,6 +275,39 @@ ul {
   line-height: 1.5;
   letter-spacing: 0.02em;
   text-align: center;
+  margin-bottom: 8px;
+}
+.team-name-worker {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+.team-list-soc {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+.team-list-soc-item {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: relative;
+  background-color: #4d5ae5;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.team-list-soc-item:hover,
+.team-list-soc-item:focus {
+  background-color: #404bbf;
+}
+.team-list-soc-link {
+  width: 100%;
+  height: 100%;
+}
+.team-soc-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  fill: #f4f4fd;
 }
 
 .portfolio {
@@ -263,6 +322,11 @@ ul {
   letter-spacing: 0.02em;
   text-transform: capitalize;
   margin-bottom: 72px;
+}
+.port-title-text {
+  padding: 32px 16px;
+  border: 1px solid #e7e9fc;
+  border-top: none;
 }
 
 .portfolio-list {
